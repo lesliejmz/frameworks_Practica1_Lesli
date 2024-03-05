@@ -88,6 +88,7 @@ export class FoodService {
     //return this.http.get<Food[]>('');
   }
 
+  //ng g c foods/details-food --standalone
 
   //Regresa una comida
   public getOne(id:number) :Food | undefined {

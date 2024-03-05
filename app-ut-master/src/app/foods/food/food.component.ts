@@ -7,11 +7,12 @@ import { Food } from '../shared/food.model';
 import { FoodService } from '../shared/food.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogConfirmComponent } from '../../shared/components/dialog-confirm/dialog-confirm.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-food',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule,TitleCasePipe, CurrencyPipe,MatIcon],
+  imports: [MatButtonModule, MatCardModule,TitleCasePipe, CurrencyPipe,MatIcon,RouterModule],
   templateUrl: './food.component.html',
   styleUrl: './food.component.scss'
 })

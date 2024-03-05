@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { Food } from '../shared/food.model';
 import { FoodService } from '../shared/food.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-food',
@@ -43,6 +44,9 @@ export class FormFoodComponent {
   });
 
   constructor(private formBuilder: FormBuilder, public serviceFood:FoodService) {}
+  
+  route: ActivatedRoute = inject(ActivatedRoute);
+
 
   public sendData() {
     // Validando formulario

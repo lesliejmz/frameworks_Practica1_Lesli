@@ -85,3 +85,75 @@
     <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="sendData()">Enviar datos</button>
     <button mat-button (click)="getErros()">Obtener errores</button>
 </form>
+
+<h2> Crea tu cuenta</h2>
+
+<form [formGroup]="form" class="max-w-3xl p-4">
+
+    <!-- CAMPO DE EMAIL  -->
+    <div class="example-container pb-2">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="ejem.leslie2918jimenez@gmail.com" formControlName="name" required>
+            @if (name?.invalid && (name?.dirty || name?.touched)) {
+            <mat-error>
+                @if (name?.hasError('required')) {
+                <span class="text-xs">campo es requerido </span>
+                }
+            </mat-error>
+            }
+        </mat-form-field>
+    </div>
+    <!-- CAMPO DE PASSWORD -->
+    <div class="example-container pb-2">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Password</mat-label>
+            <textarea matInput placeholder="ejem.leslie2918" formControlName="description" required></textarea>
+            @if (description?.invalid && (description?.dirty || description?.touched)) {
+            <mat-error>
+                @if (description?.hasError('required')) {
+                <span class="text-xs">campo es requerido </span>
+                }
+                @if (description?.hasError('minlength')) {
+                <span class="text-xs"> Debe contener máximo 8 caracteres {{description?.getError('minlength').requiredLength}}
+                    caracteres, tienen {{description?.getError('minlength').actualLength}} </span>
+                }
+            </mat-error>
+            }
+        </mat-form-field>
+    </div>
+    <!-- CAMPO DE TELEFONO  -->
+    <div class="example-container pb-2">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Telefono</mat-label>
+            <input matInput placeholder="ejem.917-102-98-13" formControlName="image" required>
+            @if (image?.invalid && (image?.dirty || image?.touched)) {
+            <mat-error>
+                @if (image?.hasError('required')) {
+                <span class="text-xs">campo es requerido </span>
+                }
+            </mat-error>
+            }
+        </mat-form-field>
+    </div>
+    <!-- CAMPO DE SEXO -->
+    <div class="example-container pb-2">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="category">
+                <mat-option value="food">Femenino</mat-option>
+                <mat-option value="drink">Masculino</mat-option>
+            </mat-select>
+            @if (category?.invalid && (category?.dirty || category?.touched)) {
+            <mat-error>
+                @if (category?.hasError('required')) {
+                <span class="text-xs">campo es requerido </span>
+                }
+            </mat-error>
+            }
+        </mat-form-field>
+    </div>
+    
+    <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="sendData()">Enviar datos</button>
+    <button mat-button (click)="getErros()">Obtener errores</button>
+</form>
